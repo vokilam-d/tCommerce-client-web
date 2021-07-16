@@ -97,6 +97,13 @@
       font-size: 14px;
     }
 
+    &:first-child {
+      @include respond-to($media_large) {
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+
     &:hover {
       @include respond-to($media_medium) {
         color: $action;
@@ -109,11 +116,6 @@
     height: 90px;
     object-fit: contain;
     border-radius: 3px;
-
-    @include respond-to($media_large) {
-      width: 110px;
-      height: 110px;
-    }
   }
 
   &__name {
