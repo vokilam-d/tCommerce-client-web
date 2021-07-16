@@ -43,13 +43,18 @@
     flex-shrink: 0;
 
     @include respond-to($media_medium) {
-      margin: 0 8px 2px;
-      padding-top: 5px;
+      margin: 0;
+      padding: 0 3px;
       justify-content: center;
     }
 
     &:first-child {
       margin-left: 3px;
+
+      @include respond-to($media_large) {
+        margin-left: 0;
+        padding-left: 0;
+      }
     }
   }
 
@@ -66,17 +71,12 @@
   }
 
   &__img {
-    width: 78px;
-    height: 78px;
+    width: 75px;
+    height: 75px;
     margin: 0 auto;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 0 10px 0 #e7e7e7;
-
-    @include respond-to($media_medium) {
-      width: 87px;
-      height: 87px;
-    }
 
     &--selected {
       border: 5px solid $primary;
@@ -93,10 +93,6 @@
     text-overflow: ellipsis;
     font-size: 13px;
     line-height: 1.2;
-
-    @include respond-to($media_medium) {
-      font-size: 14px;
-    }
   }
 }
 
