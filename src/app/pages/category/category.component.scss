@@ -65,6 +65,12 @@
       border-right: none;
     }
 
+    &:first-child {
+      @include respond-to($media_large) {
+        padding-left: 0;
+      }
+    }
+
     @include respond-to($media_medium) {
       width: calc((100% / 5) - 20px);
       margin: 0 10px 15px;
@@ -76,8 +82,10 @@
     }
 
     @include respond-to($media_large) {
-      width: calc((100% / 11) - 10px);
+      width: 92px;
       margin: 0 0 5px;
+      padding: 0 3px;
+      box-sizing: content-box;
     }
   }
 
@@ -93,7 +101,7 @@
 
     @include respond-to($media_medium) {
       justify-content: unset;
-      padding: 0 5px;
+      padding: 0 3px;
       font-size: 14px;
     }
 
@@ -116,10 +124,15 @@
     height: 90px;
     object-fit: contain;
     border-radius: 3px;
+
+    @include respond-to($media_large) {
+      width: 75px;
+      height: 75px;
+    }
   }
 
   &__name {
-    margin-top: 5px;
+    margin-top: 4px;
     text-align: center;
     hyphens: auto;
 
