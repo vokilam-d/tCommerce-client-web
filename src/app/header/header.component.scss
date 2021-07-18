@@ -76,6 +76,10 @@
       width: 190px;
       margin: 0 auto;
     }
+
+    @include respond-to($media_large) {
+      width: 160px;
+    }
   }
 
   &__logo-text {
@@ -154,6 +158,10 @@
     border: none;
   }
 
+  @include respond-to($media_large) {
+    padding: 2px 8px;
+  }
+
   &--fixed-opened-search-bar {
     @include respond-to-less-than($media_medium) {
       z-index: $zIndexToolbarFixedWithOpenedSearchbar;
@@ -198,7 +206,7 @@
 
     @include respond-to($media_large) {
       display: block;
-      margin: 0 50px;
+      margin: 0 35px;
     }
   }
 }
