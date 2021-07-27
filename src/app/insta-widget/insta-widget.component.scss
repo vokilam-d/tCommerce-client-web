@@ -1,0 +1,36 @@
+.widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__avatar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    border-radius: 50%;
+  }
+
+  &__story-link {
+    display: block;
+    height: 30px;
+    width: 30px;
+  }
+
+  &__img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+}
