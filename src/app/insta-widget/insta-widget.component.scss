@@ -7,6 +7,7 @@
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
+  border-radius: 10px;
 
   &__items {
     display: grid;
@@ -56,8 +57,21 @@
     cursor: pointer;
   }
 
+  &__container {
+    position: relative;
+    height: 100%;
+  }
+
   &__img {
+    height: 100%;
     border-radius: 10px;
+    object-fit: cover;
+  }
+
+  &__carousel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }
 
