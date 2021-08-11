@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'insta-widget',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./insta-widget.component.scss']
 })
 export class InstaWidgetComponent implements OnInit {
+  @ViewChild('post') post: ElementRef;
+  @ViewChild('modal') modal: ElementRef;
+
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
+  public isPostModalVisible(event) {
+    if (event.type === 'mouseover') {
+      this.modal.nativeElement.classList.add('post__modal--isVisible');
+    } else {
+      this.modal.nativeElement.classList.remove('post__modal--isVisible');
+    }
+  }
 }
