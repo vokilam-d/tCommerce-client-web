@@ -80,7 +80,13 @@ export class OrderSuccessComponent implements OnInit {
           this.wayforpay.run(
             wfpPayload,
             () => this.paymentSuccess = true,
-            error => this.paymentError = error || DEFAULT_ERROR_TEXT
+            error => {
+              if (error?.reason) {
+                this.paymentError = `Статус: ${error.transactionStatus}. Причина: ${error.reason}. Код причины: ${error.reasonCode}`;
+              } else {
+                this.paymentError = error || DEFAULT_ERROR_TEXT;
+              }
+            }
           );
         },
         error => this.paymentError = error.error?.message || DEFAULT_ERROR_TEXT
