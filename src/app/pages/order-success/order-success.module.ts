@@ -9,6 +9,7 @@ import { BreadcrumbsModule } from '../../breadcrumbs/breadcrumbs.module';
 import { LangRouterLinkModule } from '../../lang-router-link/lang-router-link.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxMaskModule } from 'ngx-mask';
+import { InstaWidgetModule } from '../../insta-widget/insta-widget.module';
 
 
 @NgModule({
@@ -19,9 +20,10 @@ import { NgxMaskModule } from 'ngx-mask';
     HeaderModule,
     FooterModule,
     BreadcrumbsModule,
-    NgxMaskModule.forRoot({ validation: false }),
+    NgxMaskModule.forRoot({validation: false}),
     LangRouterLinkModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    InstaWidgetModule
   ]
 })
 export class OrderSuccessModule { }

@@ -11,6 +11,7 @@ import { RecentlyAddedProductsModule } from '../../recently-added-products/recen
 import { LangRouterLinkModule } from '../../lang-router-link/lang-router-link.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { BannerModule } from '../../banner/banner.module';
+import { InstaWidgetModule } from '../../insta-widget/insta-widget.module';
 
 @NgModule({
   declarations: [IndexComponent, PostsPreviewComponent],
@@ -23,7 +24,8 @@ import { BannerModule } from '../../banner/banner.module';
     RecentlyAddedProductsModule,
     LangRouterLinkModule,
     TranslateModule.forChild(),
-    BannerModule
+    BannerModule,
+    InstaWidgetModule
   ]
 })
 export class IndexModule { }

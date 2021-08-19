@@ -8,6 +8,7 @@ import { BreadcrumbsModule } from '../../../breadcrumbs/breadcrumbs.module';
 import { FooterModule } from '../../../footer/footer.module';
 import { RecentlyViewedProductsModule } from '../../../recently-viewed-products/recently-viewed-products.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { InstaWidgetModule } from '../../../insta-widget/insta-widget.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
     BreadcrumbsModule,
     FooterModule,
     RecentlyViewedProductsModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    InstaWidgetModule
   ]
 })
 export class ContactsModule { }

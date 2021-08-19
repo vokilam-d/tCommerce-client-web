@@ -87,7 +87,8 @@
     ],
     "variable-name": [
       true,
-      "allow-leading-underscore"
+      "allow-leading-underscore",
+      "allow-snake-case"
     ],
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
