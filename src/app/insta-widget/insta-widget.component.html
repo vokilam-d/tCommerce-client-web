@@ -1,89 +1,40 @@
 <div class="widget">
-  <div class="widget__header header">
-    <div class="header__profile-info profile">
-      <div class="profile__avatar-container">
-        <img class="profile__avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png" alt="">
+  <ng-container *ngIf="profile">
+    <a href="https://www.instagram.com/klondike.com.ua/" target="_blank">
+      <div class="widget__header header">
+        <div class="header__profile-info profile">
+          <div class="profile__avatar-container">
+            <img class="profile__avatar" src="./assets/images/ig_logo.png" alt="">
+          </div>
+          <div class="profile__login">{{ profile.username }}</div>
+        </div>
+
+        <div class="header__btn">
+          <a class="view-profile-btn">{{ 'instagram_widget.go_to' | translate }}</a>
+        </div>
       </div>
-      <div class="profile__login">klondike.com.ua</div>
-    </div>
-
-    <div class="header__btn">
-      <a class="view-profile-btn">View Profile</a>
-    </div>
-  </div>
+    </a>
+  </ng-container>
 
 
-  <ul class="widget__items">
-    <li class="widget__item widget__item--0 post"
-        (mouseover)="isPostModalVisible($event)"
-        (mouseout)="isPostModalVisible($event)"
-        [id]="0"
-        #post
-    >
-      <a class="post__container">
-        <img class="post__img" src="https://latam-mining.com/wp-content/uploads/2019/12/2692/tecnologia-the-gold-standard-what-is-behind-bullions-best-run-in-years.jpg" alt="">
-        <svg class="post__carousel-icon" fill="#ffffff" height="22" role="img" viewBox="0 0 48 48" width="22"><path d="M34.8 29.7V11c0-2.9-2.3-5.2-5.2-5.2H11c-2.9 0-5.2 2.3-5.2 5.2v18.7c0 2.9 2.3 5.2 5.2 5.2h18.7c2.8-.1 5.1-2.4 5.1-5.2zM39.2 15v16.1c0 4.5-3.7 8.2-8.2 8.2H14.9c-.6 0-.9.7-.5 1.1 1 1.1 2.4 1.8 4.1 1.8h13.4c5.7 0 10.3-4.6 10.3-10.3V18.5c0-1.6-.7-3.1-1.8-4.1-.5-.4-1.2 0-1.2.6z"></path></svg>
+  <ng-container *ngIf="media">
+    <ul class="widget__items">
+      <li *ngFor="let post of media; let i = index;"
+          class="widget__item widget__item--{{i}} post"
+      >
+        <a class="post__container" [href]="post.permalink" target="_blank">
+          <img class="post__img" [src]="post.media_url" alt="">
+          <ng-container *ngIf="post.media_type === mediaType.carousel">
+            <svg class="post__carousel-icon" fill="#ffffff" height="22" role="img" viewBox="0 0 48 48" width="22"><path d="M34.8 29.7V11c0-2.9-2.3-5.2-5.2-5.2H11c-2.9 0-5.2 2.3-5.2 5.2v18.7c0 2.9 2.3 5.2 5.2 5.2h18.7c2.8-.1 5.1-2.4 5.1-5.2zM39.2 15v16.1c0 4.5-3.7 8.2-8.2 8.2H14.9c-.6 0-.9.7-.5 1.1 1 1.1 2.4 1.8 4.1 1.8h13.4c5.7 0 10.3-4.6 10.3-10.3V18.5c0-1.6-.7-3.1-1.8-4.1-.5-.4-1.2 0-1.2.6z"></path></svg>
+          </ng-container>
 
-        <div class="post__modal post-modal" #modal>
-          <div class="post-modal__caption">Поповнення асортименту клею для поталі Kölner. Kölner Permacoll Size - це водний клей для сусалі та поталі. Для внутрішніх робіт.
-            Поповнення асортименту клею для поталі Kölner. Kölner Permacoll Size - це водний клей для сусалі та поталі.
-            Поповнення асортименту клею для поталі Kölner. Kölner Permacoll Size - це водний клей для сусалі та поталі.
-            Поповнення асортименту клею для поталі Kölner. Kölner Permacoll Size - це водний клей для сусалі та поталі.
-            Поповнення асортименту клею для поталі Kölner. Kölner Permacoll Size - це водний клей для сусалі та поталі.
+          <div class="post__modal post__modal--{{i}} post-modal">
+            <div class="post-modal__caption post-modal__caption--{{i}}">
+              <div class="post-modal__text">{{ post.caption }}</div>
+            </div>
           </div>
-        </div>
-      </a>
-    </li>
-
-    <li class="widget__item widget__item--1 post">
-      <a class="post__container">
-        <img class="post__img" src="https://latam-mining.com/wp-content/uploads/2019/12/2692/tecnologia-the-gold-standard-what-is-behind-bullions-best-run-in-years.jpg" alt="">
-        <div class="post__modal post-modal">
-          <div class="post-modal__caption">
-            Поповнення асортименту клею для поталі Kölner. Kölner Permacoll Size - це водний клей для сусалі та поталі.
-            Поповнення асортименту клею для поталі Kölner. Kölner Permacoll Size - це водний клей для сусалі та поталі.
-          </div>
-        </div>
-      </a>
-    </li>
-
-    <li class="widget__item widget__item--2 post">
-      <a class="post__container">
-        <img
-          class="post__img"
-          src="https://latam-mining.com/wp-content/uploads/2019/12/2692/tecnologia-the-gold-standard-what-is-behind-bullions-best-run-in-years.jpg"
-          alt=""
-        >
-        <div class="post__modal post-modal">
-          <div class="post-modal__caption"></div>
-        </div>
-      </a>
-    </li>
-
-    <li class="widget__item widget__item--3 post">
-      <a class="post__container">
-        <img
-          class="post__img"
-          src="https://latam-mining.com/wp-content/uploads/2019/12/2692/tecnologia-the-gold-standard-what-is-behind-bullions-best-run-in-years.jpg"
-          alt=""
-        >
-        <div class="post__modal post-modal">
-          <div class="post-modal__caption"></div>
-        </div>
-      </a>
-    </li>
-
-    <li class="widget__item widget__item--4 post">
-      <a class="post__container">
-        <img
-          class="post__img"
-          src="https://latam-mining.com/wp-content/uploads/2019/12/2692/tecnologia-the-gold-standard-what-is-behind-bullions-best-run-in-years.jpg"
-          alt=""
-        >
-        <div class="post__modal post-modal">
-          <div class="post-modal__caption"></div>
-        </div>
-      </a>
-    </li>
-  </ul>
+        </a>
+      </li>
+    </ul>
+  </ng-container>
 </div>

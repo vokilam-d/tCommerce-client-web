@@ -475,5 +475,9 @@
 
   "customer_contact_info": {
     "contact_info": "Контактная информация"
+  },
+
+  "instagram_widget": {
+    "go_to": "Посмотреть наш Instagram"
   }
 }

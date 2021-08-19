@@ -3,18 +3,18 @@
 
 
 .widget {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   max-width: 800px;
   height: auto;
   margin: 0 auto;
-  padding: 5px;
-  border: 1px solid #ccc;
+  padding: 20px;
+  border: 1px solid #e9e9e9;
   border-radius: 10px;
 
-  @include respond-to($media_medium) {
-    padding: 20px;
+  @include respond-to($media_large) {
+    display: flex;
   }
 
   &__items {
@@ -67,8 +67,9 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  border: 1px solid #ccc;
+  //border: 1px solid #ccc;
   border-radius: 10px;
+  box-shadow: 3px 5px 8px #eaeaea;
 
   &:hover {
     cursor: pointer;
@@ -76,10 +77,12 @@
 
   &__container {
     position: relative;
+    width: 100%;
     height: 100%;
   }
 
   &__img {
+    width: 100%;
     height: 100%;
     border-radius: 10px;
     object-fit: cover;
@@ -97,17 +100,42 @@
     bottom: 0;
     height: 0;
     width: 100%;
-    padding: 15px;
-    font-size: 15px;
+    font-size: 13px;
     border-radius: 10px;
     overflow: hidden;
     background-color: rgba(252, 252, 252, 0.87);
     transition: all 0.25s ease-out;
 
-    &--isVisible {
-      opacity: 1;
-      height: 5em;
+    &--0 {
+      font-size: 16px;
     }
+  }
+
+  &:hover &__modal {
+    opacity: 1;
+    height: 3.5em;
+
+    &--0 {
+      height: 4em;
+    }
+  }
+}
+
+.post-modal {
+  &__caption {
+    padding: 4px;
+
+    &--0 {
+      padding: 10px;
+    }
+  }
+
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 }
 
@@ -148,18 +176,16 @@
     justify-content: space-between;
     align-items: center;
     padding: 2px;
-    border-radius: 50%;
   }
 
   &__avatar {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
+    height: 35px;
+    width: 35px;
   }
 
   &__login {
     margin-left: 15px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
   }
 }
@@ -167,11 +193,14 @@
 .view-profile-btn {
   padding: 5px 12px;
   border-radius: 3px;
+  font-size: 16px;
   font-weight: 600;
   color: #ffffff;
   background-color: #0095f6;
+  transition: all 0.2s ease;
 
   &:hover {
     cursor: pointer;
+    background-color: #3d96e9;
   }
 }

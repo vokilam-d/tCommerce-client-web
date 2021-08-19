@@ -1,4 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { InstagramService } from '../services/instagram/instagram.service';
+import { IgUserDto } from '../shared/dtos/ig-user.dto';
+import { BusinessIgAccMediaDto } from '../shared/dtos/business-ig-acc-media.dto';
+import { InstagramMediaTypeEnum } from '../shared/enums/instagram-media-type.enum';
+import { onWindowLoad } from '../shared/helpers/on-window-load.function';
 
 @Component({
   selector: 'insta-widget',
@@ -6,19 +11,25 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./insta-widget.component.scss']
 })
 export class InstaWidgetComponent implements OnInit {
-  @ViewChild('post') post: ElementRef;
-  @ViewChild('modal') modal: ElementRef;
 
+  public profile: IgUserDto;
+  public media: BusinessIgAccMediaDto[] = [];
+  public readonly mediaType: typeof InstagramMediaTypeEnum = InstagramMediaTypeEnum;
 
-  constructor() { }
+  constructor(private instagramService: InstagramService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    onWindowLoad(this, () => {
+      this.getProfileData();
+      this.getMedia();
+    });
+  }
 
-  public isPostModalVisible(event) {
-    if (event.type === 'mouseover') {
-      this.modal.nativeElement.classList.add('post__modal--isVisible');
-    } else {
-      this.modal.nativeElement.classList.remove('post__modal--isVisible');
-    }
+  private getProfileData() {
+    this.instagramService.getProfileData().subscribe(response => this.profile = response.data);
+  }
+
+  private getMedia() {
+    this.instagramService.getMedia().subscribe(response => this.media = response.data);
   }
 }

@@ -468,5 +468,9 @@
     "order_items": "Товари в замовленні",
     "in_amount_of": "на суму",
     "continue_shopping": "Продовжити покупки"
+  },
+
+  "instagram_widget": {
+    "go_to": "Переглянути наш Instagram"
   }
 }
